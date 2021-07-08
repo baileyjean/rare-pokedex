@@ -4,10 +4,11 @@ const CardCard = (props) => {
   return (
     <div
       onClick={() => {
-        props.history.push(`/card/${props.id}`)
+        props.props.history.push(`/card/${props.id}`)
       }}
+      // stlye={{ width: '10%' }}
     >
-      <img src={props.img} />
+      <img src={props.img} style={{ width: '20vw' }} />
       <div>{props.name}</div>
       <div>
         {props.price} | {props.quality}
