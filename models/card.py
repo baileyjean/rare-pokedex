@@ -59,8 +59,8 @@ class Card(db.Model):
 
     @classmethod
     def find_by_quality(cls, quality):
-        return Card.query.filter_by(quality=quality)
+        return Card.query.filter_by(quality=quality).all()
 
     @classmethod
     def find_by_price(cls, price):
-        return Card.query.filter_by(price=price)
+        return Card.query.filter_by(price=price).all()
