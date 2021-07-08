@@ -34,15 +34,15 @@ class CardDetails(Resource):
 
 class CardQuality(Resource):
     def get(self,quality):
-        cards = Card.query.find_by_quality(quality)
+        cards = Card.find_by_quality(quality)
         if not cards:
             return {"message": "Cards with that Quality Not Found"}, 404
-        return {**cards.json()}, 201
+        return [card.json() for card in cards], 201
 
 class CardPrice(Resource):
     def get(self,price):
-        cards = Card.query.find_by_quality(price)
+        cards = Card.find_by_price(price)
         if not cards:
             return {"message": "Cards of that Price Not Found"}, 404
-        return {**cards.json()}, 201
+        return [card.json() for card in cards], 201
         

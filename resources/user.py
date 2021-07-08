@@ -18,11 +18,11 @@ class Users(Resource):
         return user.json(), 201
 
 class UserDetails(Resource):
-    def get(self, user_id):
+    def get(self):
         user = User.query.options(
-            joinedload('cards')).filter_by(id=user_id).first()
+            joinedload('cards')).filter_by(id=self.id).first()
         cards = [c.json() for c in user.cards]
-        return {**user.json(), "cards": cards}
+        return {"user": user.json(), "cards": cards}
 
     def delete(self, id):
         user = User.find_by_id(id)

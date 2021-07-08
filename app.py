@@ -35,8 +35,8 @@ api.add_resource(user.Users, '/users')
 api.add_resource(user.UserDetails, '/users/<int:id>')
 api.add_resource(card.Cards, '/cards')
 api.add_resource(card.CardDetails, '/cards/<int:id>')
-api.add_resource(card.CardQuality, '/cards/<int:quality>')
-api.add_resource(card.CardPrice, '/cards/<int:price>')
+api.add_resource(card.CardQuality, '/cards/quality/<int:quality>')
+api.add_resource(card.CardPrice, '/cards/price/<int:price>')
 
 # nodemon-like features enabled below - refreshes server for us
 # we can also set our ports here by passing in the "port:<port-num>"" arg
