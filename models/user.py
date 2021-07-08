@@ -1,5 +1,6 @@
 from datetime import datetime
 from models.db import db
+from sqlalchemy.orm import joinedload
 
 class User(db.Model):
     # defines table name
@@ -49,3 +50,10 @@ class User(db.Model):
     @classmethod
     def find_by_id(cls, id):
         return User.query.filter_by(id=id).first()
+
+    @classmethod
+    def find_with_cards(cls, user_id):
+        user_with_cards = User.query.options(joinedload(
+            'cards')).filter_by(id=user_id).first()
+        cards = [card.json() for card in user_with_cards.cards]
+        return {**user_with_cards.json(), "cards": cards}
