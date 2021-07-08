@@ -16,7 +16,8 @@ class User(db.Model):
     # onupdate is a HOOK - something that's preset and just does a thing when it's told to do it
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False, onupdate=datetime.now())
     # one to many relationship between Users --> Cards
-    cards = db.relationship("Card", cascade='all', backref=db.backref('cards', lazy=True))
+    cards = db.relationship(
+        "Card", cascade='all', backref=db.backref('cards', lazy=True))
 
     def __init__(self, name, image):
         self.name = name

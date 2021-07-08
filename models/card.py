@@ -12,16 +12,21 @@ class Card(db.Model):
     price = db.Column(db.Integer)
     quality = db.Column(db.Integer)
     image = db.Column(db.String(255))
-    owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    owner = db.relationship("Owner", backref=db.backref('owners', lazy=True))
     # when you make the following columns in the future, it might invoke utcnow() automatically
     # do NOT invoke it - you just want to invoke it when the stuff is actually created
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     # onupdate is a HOOK - something that's preset and just does a thing when it's told to do it
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False, onupdate=datetime.now())
+    user_id = db.Column(db.Integer, db.ForeignKey(
+        'users.id'), nullable=False)
+    user = db.relationship("User", backref=db.backref('users', lazy=True))
 
-    def __init__(self, name):
+    def __init__(self, name, price, quality, user_id, image):
         self.name = name
+        self.price = price
+        self.quality = quality
+        self.user_id = user_id
+        self.image = image
 
     # building a dict ahead of time so we have nice, formatted data already
     def json(self):
@@ -30,7 +35,7 @@ class Card(db.Model):
             "name": self.name,
             "price": self.price,
             "quality": self.quality,
-            "owner_id": self.owner_id,
+            "user_id": self.user_id,
             "image": self.image,
             "created_at": str(self.created_at),
             "updated_at": str(self.updated_at)
@@ -51,3 +56,11 @@ class Card(db.Model):
     @classmethod
     def find_by_id(cls, id):
         return Card.query.filter_by(id=id).first()
+
+    @classmethod
+    def find_by_quality(cls, quality):
+        return Card.query.filter_by(quality=quality)
+
+    @classmethod
+    def find_by_price(cls, price):
+        return Card.query.filter_by(price=price)
