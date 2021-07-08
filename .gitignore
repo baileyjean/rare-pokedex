@@ -1,6 +1,3 @@
 __pychache__\nvenv
 .DS_Store
 node_modules
-migrations
-models/__pychache__
-resources/__pychache__
