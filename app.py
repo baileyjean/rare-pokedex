@@ -2,10 +2,9 @@ from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
 from flask_migrate import Migrate
-# below import is only for Flask Migrate!!!!
-# from models.user import User
+from models import user, card
 
-# from resources.user import Users, SingleUser
+from resources import user, card
 from models.db import db
 
 app = Flask(__name__)
@@ -26,14 +25,18 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost:5432/rare_pokede
 app.config['SQLALCHEMY_ECHO'] = True
 
 # passing in our whole Flask app
-# db.init_app(app)
+db.init_app(app)
 # How the Migrate arg looks, in general:
 # Migrate(flask_app, db_instance)
-# migrate = Migrate(app,db)
+migrate = Migrate(app,db)
 
 # Leave resources
-# api.add_resource(Users, '/users')
-# api.add_resource(SingleUser, '/users/<int:id>')
+api.add_resource(user.Users, '/users')
+api.add_resource(user.UserDetails, '/users/<int:id>')
+api.add_resource(card.Cards, '/cards')
+api.add_resource(card.CardDetails, '/cards/<int:id>')
+api.add_resource(card.CardQuality, '/cards/<int:quality>')
+api.add_resource(card.CardPrice, '/cards/<int:price>')
 
 # nodemon-like features enabled below - refreshes server for us
 # we can also set our ports here by passing in the "port:<port-num>"" arg

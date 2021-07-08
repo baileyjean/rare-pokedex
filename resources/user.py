@@ -1,5 +1,6 @@
 from flask_restful import Resource
 from flask import request
+from sqlalchemy.orm import joinedload
 from models.user import User
 from models.db import db
 
@@ -16,21 +17,17 @@ class Users(Resource):
         user.create()
         return user.json(), 201
 
-class SingleUser(Resource):
+class UserDetails(Resource):
     def get(self, user_id):
         user = User.query.options(
             joinedload('cards')).filter_by(id=user_id).first()
-        user = User.find_by_id(user_id)
-        if not user:
-            return {"message": "Not Found"}, 404
-        cards = [c.json() for c in data]
+        cards = [c.json() for c in user.cards]
         return {**user.json(), "cards": cards}
 
     def delete(self, id):
         user = User.find_by_id(id)
         if not user:
-            return {"message": "Not Found"}, 404
-
+            return {"message": "User Not Found"}, 404
         db.session.delete(user)
         db.session.commit()
-        return {"payload": id}
+        return {"message": "User Deleted", "payload": id}

@@ -1,14 +1,14 @@
 from flask_restful import Resource
 from flask import request
+from sqlalchemy.orm import joinedload
 from models.card import Card
 from models.db import db
 
 
 class Cards(Resource):
     def get(self):
-        data = Card.find_all()
-        results = [s.json() for s in data]
-        return results
+        cards = Card.find_all()
+        return [card.json() for card in cards]
 
     def post(self):
         data = request.get_json()
@@ -17,29 +17,32 @@ class Cards(Resource):
         return card.json(), 201
 
 
-class SingleCard(Resource):
+class CardDetails(Resource):
     def get(self, id):
-        card = Card.find_by_id(id)
+        card = Card.query.find_by_id(id)
         if not card:
-            return {"message": "Not Found"}, 404
-        return card.json()
+            return {"message": "Card with that ID not found"}, 404
+        return card.json(), 201
 
     def delete(self, id):
         card = Card.find_by_id(id)
         if not card:
-            return {"message": "Not Found"}, 404
-
+            return {"message": "Card Not Found"}, 404
         db.session.delete(card)
         db.session.commit()
-        return {"payload": id}
+        return {"message": "Card Deleted", "payload": id}
 
-    def put(self, id):
-        card = Card.find_by_id(id)
-        if not card:
-            return {"message": "Not Found"}, 404
-        data = request.get_json()
-        for key in data:
-            setattr(card, key, data[key])
+class CardQuality(Resource):
+    def get(self,quality):
+        cards = Card.query.find_by_quality(quality)
+        if not cards:
+            return {"message": "Cards with that Quality Not Found"}, 404
+        return {**cards.json()}, 201
 
-        db.session.commit()
-        return card.json()
+class CardPrice(Resource):
+    def get(self,price):
+        cards = Card.query.find_by_quality(price)
+        if not cards:
+            return {"message": "Cards of that Price Not Found"}, 404
+        return {**cards.json()}, 201
+        
