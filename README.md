@@ -17,12 +17,12 @@ PostgreSQL | Flask | Python | React.js | Javascript (ES6) | HTML5 | CSS3
 
 
 ## Requirements
-Get (Read)
-Post (Create)
-Delete (Delete)
-Flask Postgres backend
-Working React frontend
-Reasonably styled
+- Get (Read)
+- Post (Create)
+- Delete (Delete)
+- Flask Postgres backend
+- Working React frontend
+- Reasonably styled
 
 
 ## Credits
