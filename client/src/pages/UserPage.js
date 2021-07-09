@@ -77,7 +77,7 @@ const UserPage = (props) => {
           alignItems: 'center'
         }}
       >
-        <div onClick={() => setPosting(true)}>ADD CARD</div>
+        <div className="add-card"><button onClick={() => setPosting(true)}>ADD CARD</button></div>
       </div>
       <div
         style={{
