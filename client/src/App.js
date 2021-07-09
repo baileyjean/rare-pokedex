@@ -4,10 +4,12 @@ import CardPage from './pages/CardPage'
 import HomePage from './pages/HomePage'
 import UserPage from './pages/UserPage'
 import SellerPage from './pages/SellerPage'
+import NavBar from './components/NavBar'
 
 function App(props) {
   return (
     <div className="App">
+      <NavBar />
       <Switch>
         <Route exact path="/" component={(props) => <HomePage {...props} />} />
         <Route
