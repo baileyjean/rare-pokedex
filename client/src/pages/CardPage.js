@@ -9,6 +9,11 @@ const CardPage = (props) => {
     setCard(res.data)
   }
 
+  const deleteCard = async () => {
+    await axios.delete(`${BASE_URL}/cards/${props.match.params.id}`)
+    props.history.push('/')
+  }
+
   useEffect(() => {
     getCardInfo()
   }, [])
@@ -18,11 +23,14 @@ const CardPage = (props) => {
       <img src={card.image} />
       <h1>{card.name}</h1>
       <div className="card-details">
-        <div>Listed Price:  <b>${card.price}</b> | PSA Grade:  <b>{card.quality}</b></div>
+        <div>
+          Listed Price: <b>${card.price}</b> | PSA Grade: <b>{card.quality}</b>
+        </div>
       </div>
       <div onClick={() => props.history.push(`/user/${card.user_id}`)}>
         Check out more from this seller!
       </div>
+      <div onClick={deleteCard}>Delete this card?</div>
     </div>
   )
 }
