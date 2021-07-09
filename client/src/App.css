@@ -4,25 +4,15 @@
   margin: 0px;
   padding: 0px;
   width: 100vw;
+  height: 200vh;
   font-family: 'Encode Sans SC', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .card-card {
-  padding: 0.5em;
-  margin: 0.3em;
-  width: 30vw;
-  height: 40vh;
+  padding: 0.2em;
+  margin: 0.1em;
+  width: 30%;
+  height: 40%;
   font-family: 'Encode Sans SC', sans-serif;
 }
 
