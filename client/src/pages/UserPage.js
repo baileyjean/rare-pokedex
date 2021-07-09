@@ -34,7 +34,6 @@ const UserPage = (props) => {
       >
         <div onClick={() => setPosting(true)}>ADD CARD</div>
       </div>
-
       <div
         style={{
           display: `${posting ? 'flex' : 'none'}`,
