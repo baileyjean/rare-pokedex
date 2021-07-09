@@ -129,3 +129,30 @@
   flex-flow: wrap;
   justify-content: center;
 }
+
+.add-card button {
+  background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Pokemon_Trading_Card_Game_cardback.jpg/220px-Pokemon_Trading_Card_Game_cardback.jpg");
+  background-size: 5em;
+  background-position: center;
+  width: 5em;
+  height: 7em;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: inherit;
+  text-shadow: 2px 2px 5px rgb(255, 115, 60);
+  cursor: pointer;
+}
+
+.add-card button:hover {
+  background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Pokemon_Trading_Card_Game_cardback.jpg/220px-Pokemon_Trading_Card_Game_cardback.jpg");
+  background-size: 7em;
+  background-position: center;
+  width: 7em;
+  height: 10em;
+  color: white;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: bold;
+  text-shadow: 4px 4px 6px rgb(255, 89, 60);
+}
