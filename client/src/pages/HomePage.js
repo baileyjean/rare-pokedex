@@ -4,6 +4,7 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { Select } from 'react-rainbow-components'
 import ball from '../Styles/submit.png'
+import fight from '../Styles/fight.gif'
 
 const HomePage = (props) => {
   const [cards, setCards] = useState([])
@@ -83,15 +84,37 @@ const HomePage = (props) => {
       </div>
       <div>
         <h1>Why Rare Pokedex?</h1>
-        <p>Since the start of the Pokemon craze in the mid-1990s, a slew of violence over this delightful and wholesome past-time has broken out.</p>
-        <p>Our hope for Rare Pokedex is to offer a safe haven to children and nerds all over the world - so that the violence against children and nerds for their amazing Pokemon cards can be put to an end</p>
+        <p>
+          Since the start of the Pokemon craze in the mid-1990s, a slew of
+          violence over this delightful and wholesome past-time has broken out.
+        </p>
+        <p>
+          Our hope for Rare Pokedex is to offer a safe haven to children and
+          nerds all over the world - so that the violence against children and
+          nerds for their amazing Pokemon cards can be put to an end
+        </p>
+        <img src={fight} />
         <h3>Catch Awareness - End the Senseless Violence Over Pokemon</h3>
-        <ul>
-          <li>Montreal (1999): 14-year-old boy STABBED after accusing a 12-year-old boy</li>
-          <li>Maryland (2015): 29-year-old man charged with assault after attacking his 5-year-old nephew for touching his Pokemon cards</li>
-          <li>Pennsylvania (2021): Mob scene ensues when local Walmart opens its doors and nerds rush to the Pokemon cards</li>
-          <li>Wisconsin (2021): Four men (ages 23-35) attack a 35-year-old man in an attempt to steal his Pokemon cards</li>
-        </ul>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ textAlign: 'left', width: '60vw' }}>
+            <div>
+              Montreal (1999): 14-year-old boy STABBED after accusing a
+              12-year-old boy
+            </div>
+            <div>
+              Maryland (2015): 29-year-old man charged with assault after
+              attacking his 5-year-old nephew for touching his Pokemon cards
+            </div>
+            <div>
+              Pennsylvania (2021): Mob scene ensues when local Walmart opens its
+              doors and nerds rush to the Pokemon cards
+            </div>
+            <div style={{ marginBottom: '10vh' }}>
+              Wisconsin (2021): Four men (ages 23-35) attack a 35-year-old man
+              in an attempt to steal his Pokemon cards
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
