@@ -40,32 +40,42 @@ const HomePage = (props) => {
 
   return (
     <div>
-      <div
-        style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
-      >
-        <div>Filter by PSA grade:</div>
-        <Select
-          options={options}
-          value={psa}
-          onChange={(e) => setPsa(e.target.value)}
-        />
-        <div className="card-card">
-          <button onClick={getCards}>Filter</button>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#F0F0F0',
+            border: '5px solid ##ffcb05',
+            margin: '50px',
+            width: '25vw'
+          }}
+        >
+          <div>Filter by PSA grade:</div>
+          <Select
+            options={options}
+            value={psa}
+            style={{ padding: '20px' }}
+            onChange={(e) => setPsa(e.target.value)}
+          />
+          <div>
+            <button onClick={getCards}>Filter</button>
+          </div>
         </div>
       </div>
       <div className="card-card-card">
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {cards.map((card) => (
-            <CardCard
-              name={card.name}
-              img={card.image}
-              price={card.price}
-              quality={card.quality}
-              id={card.id}
-              props={props}
-            />
-          ))}
-        </div>
+        {cards.map((card) => (
+          <CardCard
+            name={card.name}
+            img={card.image}
+            price={card.price}
+            quality={card.quality}
+            id={card.id}
+            props={props}
+          />
+        ))}
       </div>
     </div>
   )
