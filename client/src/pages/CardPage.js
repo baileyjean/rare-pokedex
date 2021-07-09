@@ -11,7 +11,7 @@ const CardPage = (props) => {
 
   useEffect(() => {
     getCardInfo()
-  })
+  }, [])
 
   return (
     <div>
