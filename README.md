@@ -26,3 +26,5 @@ PostgreSQL | Flask | Python | React.js | Javascript (ES6) | HTML5 | CSS3
 
 
 ## Credits
+- [The Gamer - Rarest Pokemon Cards](https://www.thegamer.com/rarest-pokemon-cards-worth/)
+- [CSS Workshop - Image with Text Overlay Guide](http://css-workshop.com/hover-box-text-over-images-on-hover-and-more/)
