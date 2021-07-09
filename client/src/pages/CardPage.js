@@ -14,11 +14,12 @@ const CardPage = (props) => {
   }, [])
 
   return (
-    <div>
-      <img src={card.image} style={{ width: '60vw' }} />
+    <div className="card-page">
+      <img src={card.image} />
       <h1>{card.name}</h1>
-      <div>Listed Price: ${card.price}</div>
-      <div>PSA Grade: {card.quality}</div>
+      <div className="card-details">
+        <div>Listed Price:  <b>${card.price}</b> | PSA Grade:  <b>{card.quality}</b></div>
+      </div>
       <div onClick={() => props.history.push(`/user/${card.user_id}`)}>
         Check out more from this seller!
       </div>

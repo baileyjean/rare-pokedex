@@ -14,6 +14,8 @@ body {
   padding-right: 2px;
 }
 
+/* CARD RESULTS PAGE + CARDCARD COMPONENT STYLING */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 .card-card {
   padding: 0.2em;
   margin: 0.1em;
@@ -74,6 +76,33 @@ body {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 } 
 
+/* CARD PAGE STYLING */
+/* ~~~~~~~~~~~~~~~~~ */
+
+.card-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-details div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow: 2;
+  margin: 0;
+  padding: 1em;
+}
+
+.card-page img {
+  width: 60%;
+  margin: 2em;
+  border-radius: 30%;
+}
+
+/* SELLER RESULTS PAGE STYLING */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 .hover-div {
   display: flex;
   flex-flow: row wrap;
@@ -124,6 +153,9 @@ body {
   height: 100%;
 }
 
+/* USER (SELLER) PAGE STYLING */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -135,6 +167,8 @@ body {
   flex-flow: wrap;
   justify-content: center;
 }
+
+
 
 .add-card button {
   background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Pokemon_Trading_Card_Game_cardback.jpg/220px-Pokemon_Trading_Card_Game_cardback.jpg");
