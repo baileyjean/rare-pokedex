@@ -3,6 +3,7 @@ import CardCard from '../components/CardCard'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { Select } from 'react-rainbow-components'
+import ball from '../Styles/submit.png'
 
 const HomePage = (props) => {
   const [cards, setCards] = useState([])
@@ -48,12 +49,13 @@ const HomePage = (props) => {
             alignItems: 'center',
             justifyContent: 'center',
             backgroundColor: '#F0F0F0',
-            border: '5px solid ##ffcb05',
+            border: '5px solid #ffcb05',
+            borderRadius: '15px',
             margin: '50px',
-            width: '25vw'
+            width: '27vw'
           }}
         >
-          <div>Filter by PSA grade:</div>
+          <div style={{ fontSize: '20px' }}>Filter by PSA grade:</div>
           <Select
             options={options}
             value={psa}
@@ -61,7 +63,9 @@ const HomePage = (props) => {
             onChange={(e) => setPsa(e.target.value)}
           />
           <div>
-            <button onClick={getCards}>Filter</button>
+            <div onClick={getCards} style={{ cursor: 'pointer' }}>
+              <img src={ball} style={{ width: '40px' }} />
+            </div>
           </div>
         </div>
       </div>
