@@ -27,10 +27,19 @@ const CardPage = (props) => {
           Listed Price: <b>${card.price}</b> | PSA Grade: <b>{card.quality}</b>
         </div>
       </div>
-      <div onClick={() => props.history.push(`/user/${card.user_id}`)}>
+      <div
+        className="card-page-buttons"
+        onClick={() => props.history.push(`/user/${card.user_id}`)}
+      >
         Check out more from this seller!
       </div>
-      <div onClick={deleteCard}>Delete this card?</div>
+      <div
+        style={{ marginBottom: '10vh' }}
+        className="card-page-buttons"
+        onClick={deleteCard}
+      >
+        Delete this card?
+      </div>
     </div>
   )
 }
