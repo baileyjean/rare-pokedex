@@ -17,7 +17,7 @@ const HomePage = (props) => {
   }, [])
 
   return (
-    <div>
+    <div className="card-card-card">
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {cards.map((card) => (
           <CardCard
