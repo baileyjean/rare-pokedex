@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import SellerCard from '../components/SellerCard'
 import axios from 'axios'
+import { BASE_URL } from '../globals'
 import { Button, Input } from 'react-rainbow-components'
 
 const SellerPage = (props) => {
   const [sellers, setSellers] = useState([])
   const [posting, setPosting] = useState(false)
   const [formInfo, setFormInfo] = useState({
-    username: '',
+    name: '',
     image: ''
   })
 
   const getSellers = async () => {
-    const res = await axios.get()
+    const res = await axios.get(`${BASE_URL}/users`)
     setSellers(res.data)
   }
 
   console.log(formInfo)
 
   useEffect(() => {
-    // getSellers()
+    getSellers()
   }, [])
+
+  const handleSubmit = async () => {
+    const res = await axios.post(`${BASE_URL}/users`, formInfo)
+    setPosting(false)
+  }
 
   return (
     <div>
@@ -43,10 +49,8 @@ const SellerPage = (props) => {
         <Input
           label="Name"
           type="text"
-          value={formInfo.username}
-          onChange={(e) =>
-            setFormInfo({ ...formInfo, username: e.target.value })
-          }
+          value={formInfo.name}
+          onChange={(e) => setFormInfo({ ...formInfo, name: e.target.value })}
         />
         <Input
           label="Image"
@@ -54,16 +58,22 @@ const SellerPage = (props) => {
           value={formInfo.image}
           onChange={(e) => setFormInfo({ ...formInfo, image: e.target.value })}
         />
-        <div onClick={() => setPosting(false)}>Cancel</div>
+        <div>
+          <div onClick={() => setPosting(false)}>Cancel</div>
+          <div onClick={handleSubmit}>Submit</div>
+        </div>
       </div>
       <div>
-        {sellers.map((seller) => (
-          <SellerCard
-            username={seller.username}
-            img={seller.image}
-            id={seller.id}
-          />
-        ))}
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {sellers.map((seller) => (
+            <SellerCard
+              name={seller.name}
+              img={seller.image}
+              id={seller.id}
+              props={props}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )
