@@ -17,8 +17,6 @@ const SellerPage = (props) => {
     setSellers(res.data)
   }
 
-  console.log(formInfo)
-
   useEffect(() => {
     getSellers()
   }, [])

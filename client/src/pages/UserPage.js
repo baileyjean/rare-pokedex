@@ -53,11 +53,11 @@ const UserPage = (props) => {
   ]
 
   return (
-    <div>
-      <div>You are viewing {user.name}'s profile</div>
-      <img src={user.image} style={{ width: '70vw' }} />
-      <div>{user.name}'s cards:</div>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <div className="profile">
+      <h1>You are viewing {user.name}'s profile</h1>
+      <img src={user.image} style={{ width: '20em' }} />
+      <h3>{user.name}'s cards:</h3>
+      <div className="profile-cards">
         {cards.map((card, index) => (
           <CardCard
             key={index}
